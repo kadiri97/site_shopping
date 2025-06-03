@@ -1,62 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adan Salat Times</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<html>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <body>
-    <div class="container">
-      <h1>Adan Salat - Tanger, Morocco</h1>
-      <p class="date">Today: <span id="date"></span></p>
-
-      <ul class="prayer-times" id="prayerTimes">
-        <li><span>Fajr</span><strong>05:00</strong></li>
-        <li><span>Dhuhr</span><strong>13:30</strong></li>
-        <li><span>Asr</span><strong>17:00</strong></li>
-        <li><span>Maghrib</span><strong>19:45</strong></li>
-        <li><span>Isha</span><strong>21:00</strong></li>
-        <li>
-          <center class="kadiri">
-            <span
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-              cupiditate quo sint quae placeat harum sequi, deserunt, nihil at
-              velit minus, ab exercitationem dolores impedit quaerat autem
-              labore fuga? Sunt!</span
-            >
-          </center>
-        </li>
-        <li>
-          <marquee><h1>الله اكبر</h1></marquee>
-        </li>
-      </ul>
-
-      <audio id="adhanAudio" src="adhan.mp3" preload="auto"></audio>
-      <p class="note">Keep this tab open to hear the Adan at prayer time.</p>
-    </div>
-
-    <script>
-      // Set today's date
-      document.getElementById("date").innerText =
-        new Date().toLocaleDateString();
-
-      // Check and play Adhan at correct time
-      function checkPrayerTime() {
-        const now = new Date();
-        const currentTime = now.toTimeString().slice(0, 5); // HH:MM
-        const listItems = document.querySelectorAll("#prayerTimes li");
-
-        listItems.forEach((item) => {
-          const time = item.querySelector("strong").innerText;
-          if (time === currentTime) {
-            document.getElementById("adhanAudio").play();
-          }
-        });
-      }
-
-      // Run every minute
-      setInterval(checkPrayerTime, 60000);
-    </script>
+    <center>
+      <div id="myPlot" style="width: 100%; max-width: 700px"></div>
+      <script src="script.js"></script>
+    </center>
   </body>
 </html>
